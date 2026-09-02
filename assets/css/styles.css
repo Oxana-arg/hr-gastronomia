@@ -1,0 +1,867 @@
+/* ==========================================================================
+   Оксана Юрченко — HR-консалтинг для гастроиндустрии
+   Дизайн-система: пастельные палитры, арочные рамки, филетеадо-росчерк.
+
+   Как поменять палитру: атрибут data-theme на теге <html>.
+       data-theme="mate"     песочно-шалфейная (по умолчанию)
+       data-theme="rosa"     пудрово-винная
+       data-theme="porteno"  лавандово-мятная
+   Живое сравнение: открыть страницу с ?themes=1 в адресе.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Шрифты — лежат в репозитории, внешних запросов нет.
+      Prata и Golos Text распространяются по SIL Open Font License 1.1,
+      тексты лицензий — в assets/fonts/. Golos Text вариативный: один файл
+      на все начертания от 400 до 600.
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Golos Text'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('../fonts/golos-text-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Golos Text'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('../fonts/golos-text-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Golos Text'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('../fonts/golos-text-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Golos Text'; font-style: normal; font-weight: 400 600; font-display: swap;
+  src: url('../fonts/golos-text-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: 'Prata'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/prata-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Prata'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/prata-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Prata'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/prata-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* --------------------------------------------------------------------------
+   1. Токены палитр
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-theme="mate"] {
+  --bg:          #F5F3EC;  /* костяная бумага */
+  --bg-2:        #EBE8DC;  /* фон чередующихся секций */
+  --surface:     #FFFFFF;
+  --tint:        #E2E8DC;  /* шалфейная заливка */
+  --border:      #DCD7C6;
+  --border-soft: #E8E4D7;
+
+  --ink:         #23281F;  /* оливково-чёрный */
+  --ink-2:       #5C6153;  /* вторичный текст */
+  --ink-on-dark: #F5F3EC;
+
+  --accent:      #8A5323;  /* жжёная амбра, для текста и линий */
+  --accent-soft: #F0E4D2;
+  --deep:        #2E3A28;  /* основная кнопка */
+  --deep-hover:  #3D4C35;
+
+  --shadow: 0 1px 2px rgba(35, 40, 31, .04), 0 12px 32px -12px rgba(35, 40, 31, .12);
+  --shadow-lift: 0 2px 4px rgba(35, 40, 31, .05), 0 22px 48px -16px rgba(35, 40, 31, .20);
+}
+
+[data-theme="rosa"] {
+  --bg:          #FBF4F3;
+  --bg-2:        #F4E5E3;
+  --surface:     #FFFFFF;
+  --tint:        #F7E4E0;
+  --border:      #EED9D6;
+  --border-soft: #F4E6E4;
+
+  --ink:         #2C2326;
+  --ink-2:       #6B5A5F;
+  --ink-on-dark: #FBF4F3;
+
+  --accent:      #9C4257;
+  --accent-soft: #F7E2E6;
+  --deep:        #6E2B3D;
+  --deep-hover:  #853548;
+
+  --shadow: 0 1px 2px rgba(44, 35, 38, .04), 0 12px 32px -12px rgba(44, 35, 38, .12);
+  --shadow-lift: 0 2px 4px rgba(44, 35, 38, .05), 0 22px 48px -16px rgba(44, 35, 38, .20);
+}
+
+[data-theme="porteno"] {
+  --bg:          #F6F6FB;
+  --bg-2:        #E9E9F4;
+  --surface:     #FFFFFF;
+  --tint:        #DDEDE9;  /* мятная заливка */
+  --border:      #DCDBEE;
+  --border-soft: #E9E8F5;
+
+  --ink:         #22243A;
+  --ink-2:       #585B76;
+  --ink-on-dark: #F6F6FB;
+
+  --accent:      #4B5296;
+  --accent-soft: #E3E5F5;
+  --deep:        #313767;
+  --deep-hover:  #3F4680;
+
+  --shadow: 0 1px 2px rgba(34, 36, 58, .04), 0 12px 32px -12px rgba(34, 36, 58, .14);
+  --shadow-lift: 0 2px 4px rgba(34, 36, 58, .05), 0 22px 48px -16px rgba(34, 36, 58, .22);
+}
+
+/* --------------------------------------------------------------------------
+   2. Типографика и общие размеры
+   -------------------------------------------------------------------------- */
+
+:root {
+  --font-display: "Prata", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: "Golos Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --step--1: clamp(.82rem, .79rem + .12vw, .9rem);
+  --step-0:  clamp(1rem, .96rem + .18vw, 1.09rem);
+  --step-1:  clamp(1.15rem, 1.08rem + .32vw, 1.35rem);
+  --step-2:  clamp(1.4rem, 1.26rem + .62vw, 1.8rem);
+  --step-3:  clamp(1.75rem, 1.5rem + 1.1vw, 2.5rem);
+  --step-4:  clamp(2.1rem, 1.62rem + 2.1vw, 3.5rem);
+
+  --wrap: 1140px;
+  --gutter: clamp(1.25rem, .9rem + 1.6vw, 2.5rem);
+  --section-y: clamp(4rem, 3rem + 4vw, 7.5rem);
+  --radius: 18px;
+  --radius-sm: 10px;
+  --arch: 50% 50% var(--radius) var(--radius) / 32% 32% 3% 3%;
+
+  color-scheme: light;
+}
+
+/* --------------------------------------------------------------------------
+   3. Сброс и база
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+/* Едва заметное зерно, чтобы пастель не выглядела пластиковой. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+}
+
+body > * { position: relative; z-index: 1; }
+
+img, svg { max-width: 100%; display: block; }
+img { height: auto; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); }
+
+p { margin: 0; text-wrap: pretty; }
+
+a { color: var(--accent); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink); }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection { background: var(--tint); color: var(--ink); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute; left: 50%; top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  padding: .7rem 1.2rem;
+  background: var(--deep); color: var(--ink-on-dark);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  text-decoration: none; font-size: var(--step--1);
+}
+.skip-link:focus-visible { transform: translate(-50%, 0); color: var(--ink-on-dark); }
+
+/* --------------------------------------------------------------------------
+   4. Раскладка
+   -------------------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-y); }
+.section--tinted { background: var(--bg-2); }
+.section--bordered { border-top: 1px solid var(--border-soft); }
+
+.section__head { max-width: 46rem; margin-bottom: clamp(2.25rem, 1.6rem + 2.4vw, 3.75rem); }
+.section__head p { margin-top: 1rem; color: var(--ink-2); font-size: var(--step-1); }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin: 0 0 1.1rem;
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* --------------------------------------------------------------------------
+   5. Росчерк в духе филетеадо портеньо — фирменный элемент
+   -------------------------------------------------------------------------- */
+
+.orn {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.orn--sm { max-width: 92px; }
+.orn--lg { max-width: 190px; }
+.orn .orn__dot { fill: var(--accent); stroke: none; }
+
+.divider {
+  display: flex;
+  justify-content: center;
+  padding-block: clamp(2rem, 1.4rem + 2vw, 3.25rem);
+}
+.divider .orn { max-width: 148px; opacity: .75; }
+
+/* --------------------------------------------------------------------------
+   6. Кнопки
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .85rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn svg { width: 1.1em; height: 1.1em; flex: none; }
+
+.btn--primary { background: var(--deep); color: var(--ink-on-dark); }
+.btn--primary:hover { background: var(--deep-hover); color: var(--ink-on-dark); }
+
+.btn--outline { background: transparent; color: var(--ink); border-color: var(--border); }
+.btn--outline:hover { background: var(--surface); color: var(--ink); border-color: var(--ink-2); }
+
+.btn--small { padding: .55rem 1.05rem; font-size: var(--step--1); }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Шапка
+   -------------------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease, background-color .25s ease;
+}
+.header[data-scrolled="true"] {
+  border-bottom-color: var(--border);
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 72px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-right: auto;
+}
+.brand:hover { color: var(--ink); }
+.brand__name { font-family: var(--font-display); font-size: 1.18rem; }
+.brand__role {
+  font-size: .68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.nav ul { display: flex; gap: 1.6rem; }
+.nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: var(--step--1);
+  padding-block: .3rem;
+  border-bottom: 1px solid transparent;
+}
+.nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+
+.header__aside { display: flex; align-items: center; gap: 1rem; }
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.lang a { color: var(--ink-2); text-decoration: none; }
+.lang a:hover { color: var(--ink); }
+.lang [aria-current="true"] { color: var(--ink); font-weight: 600; }
+.lang__sep { opacity: .45; }
+
+.burger {
+  display: none;
+  width: 42px; height: 42px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--ink);
+}
+.burger span {
+  display: block;
+  width: 16px; height: 1.5px;
+  margin: 3px auto;
+  background: currentColor;
+  transition: transform .25s ease, opacity .2s ease;
+}
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
+
+/* --------------------------------------------------------------------------
+   8. Первый экран
+   -------------------------------------------------------------------------- */
+
+.hero { padding-block: clamp(3rem, 2rem + 4vw, 6rem) var(--section-y); }
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  align-items: center;
+}
+
+.hero__title { margin-bottom: 1.5rem; }
+.hero__title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero__lede {
+  max-width: 34rem;
+  font-size: var(--step-1);
+  color: var(--ink-2);
+}
+
+.hero__note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem .9rem;
+  margin-top: 1.5rem;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.hero__note .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+.hero__figure { position: relative; }
+.hero__orn {
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  width: 168px;
+  transform: translateX(-50%);
+  opacity: .85;
+}
+
+/* Арочная рамка — отсылка к барному зеркалу и окну кофейни. */
+.arch {
+  position: relative;
+  margin: 0;
+  border-radius: var(--arch);
+  overflow: hidden;
+  background: var(--tint);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.arch img { width: 100%; height: 100%; object-fit: cover; }
+.arch--squat { border-radius: 34% 34% var(--radius) var(--radius) / 18% 18% 3% 3%; }
+
+/* --------------------------------------------------------------------------
+   9. Полоса фактов
+   -------------------------------------------------------------------------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-block: 1px solid var(--border);
+}
+.fact {
+  background: var(--bg);
+  padding: clamp(1.5rem, 1rem + 1.6vw, 2.25rem) clamp(1rem, .7rem + 1vw, 1.75rem);
+}
+.fact__value {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.1;
+  color: var(--ink);
+}
+.fact__label {
+  margin-top: .5rem;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   10. Карточки
+   -------------------------------------------------------------------------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1rem, .7rem + 1vw, 1.75rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.card p { color: var(--ink-2); }
+
+/* --------------------------------------------------------------------------
+   11. Знакомство
+   -------------------------------------------------------------------------- */
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 1.4rem + 3vw, 4.5rem);
+  align-items: start;
+}
+.about__text > * + * { margin-top: 1.1rem; }
+.about__text p { color: var(--ink-2); }
+.about__text strong { color: var(--ink); font-weight: 500; }
+
+.credentials {
+  display: grid;
+  gap: .75rem;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.credentials li {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: .75rem;
+  align-items: start;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.credentials li::before {
+  content: "";
+  width: 7px; height: 7px;
+  margin-top: .55em;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   12. Тарифы — лестница, поэтому нумерация осмысленна
+   -------------------------------------------------------------------------- */
+
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: clamp(1rem, .7rem + 1vw, 1.5rem);
+}
+
+.tier {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.tier:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
+
+.tier__num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--border);
+  margin-bottom: 1.1rem;
+}
+.tier__name { font-size: var(--step-1); }
+.tier__price {
+  margin-top: .6rem;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  color: var(--accent);
+  line-height: 1.15;
+}
+.tier__for {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-soft);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+.tier--featured { background: var(--tint); border-color: var(--accent); }
+.tier--featured .tier__num { color: color-mix(in srgb, var(--accent) 45%, transparent); }
+
+.tiers-note {
+  margin-top: 1.75rem;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   13. Процесс — настоящая последовательность шагов
+   -------------------------------------------------------------------------- */
+
+.process__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(2rem, 1.4rem + 3vw, 4.5rem);
+  align-items: start;
+}
+
+.steps { counter-reset: step; display: grid; }
+.step {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 1.25rem;
+  padding-block: 1.4rem;
+  border-top: 1px solid var(--border);
+}
+.step:last-child { border-bottom: 1px solid var(--border); }
+.step::before {
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--accent);
+  padding-top: .15rem;
+}
+.step h3 { font-size: var(--step-1); margin-bottom: .35rem; }
+.step p { color: var(--ink-2); font-size: var(--step--1); }
+
+.guarantee {
+  margin-top: 2rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  font-size: var(--step--1);
+}
+.guarantee strong { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   14. Кого подбираю
+   -------------------------------------------------------------------------- */
+
+.tags { display: flex; flex-wrap: wrap; gap: .6rem; }
+.tags li {
+  padding: .5rem 1.05rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: var(--step--1);
+}
+
+/* --------------------------------------------------------------------------
+   14a. Фотополоса «в паре за работой»
+   -------------------------------------------------------------------------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, .7rem + 1vw, 1.75rem);
+}
+.gallery figure { margin: 0; }
+.gallery figcaption {
+  margin-top: .85rem;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   15. FAQ
+   -------------------------------------------------------------------------- */
+
+.faq { max-width: 46rem; }
+.faq details {
+  border-top: 1px solid var(--border);
+  padding-block: .35rem;
+}
+.faq details:last-of-type { border-bottom: 1px solid var(--border); }
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.1rem;
+  font-size: var(--step-1);
+  font-family: var(--font-display);
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "";
+  flex: none;
+  width: 11px; height: 11px;
+  border-right: 1.5px solid var(--accent);
+  border-bottom: 1.5px solid var(--accent);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform .25s ease;
+}
+.faq details[open] summary::after { transform: translateY(2px) rotate(225deg); }
+.faq details > p { padding-bottom: 1.3rem; color: var(--ink-2); max-width: 40rem; }
+
+/* --------------------------------------------------------------------------
+   16. Финальный призыв и подвал
+   -------------------------------------------------------------------------- */
+
+.cta__box {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  text-align: center;
+  max-width: 44rem;
+  margin-inline: auto;
+}
+.cta__box p { color: var(--ink-2); font-size: var(--step-1); }
+.cta__box .btn-row { justify-content: center; margin-top: .75rem; }
+
+.footer {
+  padding-block: 3rem 2.5rem;
+  border-top: 1px solid var(--border);
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.footer__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.footer a { color: var(--ink-2); text-decoration: none; }
+.footer a:hover { color: var(--ink); text-decoration: underline; }
+.footer ul { display: grid; gap: .5rem; }
+.footer__title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: .75rem;
+}
+.footer__legal { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-soft); }
+
+/* Заглушка для ещё не присланных данных — заметна на странице, но не кричит. */
+.todo {
+  background: var(--accent-soft);
+  border-bottom: 1px dashed var(--accent);
+  padding: 0 .2em;
+}
+
+/* --------------------------------------------------------------------------
+   17. Временный переключатель палитр (?themes=1)
+   -------------------------------------------------------------------------- */
+
+.theme-switch {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 80;
+  display: flex;
+  gap: .35rem;
+  padding: .4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-lift);
+}
+.theme-switch button {
+  width: 30px; height: 30px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.theme-switch button[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* --------------------------------------------------------------------------
+   18. Появление секций при скролле
+   -------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s cubic-bezier(.22, .61, .36, 1), transform .7s cubic-bezier(.22, .61, .36, 1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* --------------------------------------------------------------------------
+   19. Адаптив
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .hero__grid,
+  .about__grid,
+  .process__grid { grid-template-columns: minmax(0, 1fr); }
+
+  /* На узком экране сначала заголовок и кнопки, фотография — следом. */
+  .hero__figure { max-width: 380px; margin-inline: auto; }
+  .about__figure { max-width: 360px; margin-inline: auto; }
+
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .gallery { grid-template-columns: minmax(0, 1fr); max-width: 420px; margin-inline: auto; }
+}
+
+@media (max-width: 780px) {
+  .burger { display: block; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    padding: .5rem var(--gutter) 1.5rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav[data-open="true"] { display: block; }
+  .nav ul { flex-direction: column; gap: 0; }
+  .nav a { display: block; padding-block: .85rem; border-bottom: 1px solid var(--border-soft); }
+  .nav a:hover { border-bottom-color: var(--border-soft); }
+
+  .header__inner { position: relative; }
+  .header__aside .btn { display: none; }
+}
+
+@media (max-width: 480px) {
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .btn-row .btn { flex: 1 1 100%; justify-content: center; }
+
+  /* Подпись под именем уводила шапку на две строки. */
+  .brand__role { display: none; }
+  .brand__name { font-size: 1.05rem; }
+}
+
+/* --------------------------------------------------------------------------
+   20. Уважение к настройкам пользователя и печать
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media print {
+  .header, .theme-switch, .btn-row, .footer { display: none; }
+  body::before { display: none; }
+  .reveal { opacity: 1; transform: none; }
+}

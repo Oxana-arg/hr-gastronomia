@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img">
+  <rect width="1200" height="630" fill="#F5F3EC"/>
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="none" stroke="#DCD7C6" stroke-width="2"/>
+  <g fill="none" stroke="#8A5323" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+     transform="translate(600 150) scale(1.5) translate(-80 -17)">
+    <path d="M4 17h40"/>
+    <path d="M44 17c0-8 8-12 15-9s5 13-3 13c-5.5 0-8-6-3-8.5"/>
+    <path d="M44 17c4 5 9 7 14 6.5"/>
+    <path d="M80 10.5 85.5 17 80 23.5 74.5 17Z"/>
+    <path d="M156 17h-40"/>
+    <path d="M116 17c0-8-8-12-15-9s-5 13 3 13c5.5 0 8-6 3-8.5"/>
+    <path d="M116 17c-4 5-9 7-14 6.5"/>
+  </g>
+  <text x="600" y="330" text-anchor="middle" font-family="Prata, Georgia, serif"
+        font-size="72" fill="#23281F">Оксана Юрченко</text>
+  <text x="600" y="410" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
+        font-size="34" fill="#5C6153">HR-консалтинг для ресторанного бизнеса</text>
+  <text x="600" y="462" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
+        font-size="34" fill="#5C6153">в Аргентине</text>
+  <text x="600" y="545" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
+        font-size="26" fill="#8A5323" letter-spacing="4">БУЭНОС-АЙРЕС</text>
+</svg>
