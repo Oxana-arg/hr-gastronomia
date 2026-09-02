@@ -1,12 +1,9 @@
 /* ==========================================================================
    Оксана Юрченко — HR-консалтинг для гастроиндустрии
-   Дизайн-система: пастельные палитры, арочные рамки, филетеадо-росчерк.
+   Дизайн-система: пудрово-винная пастель, арочные рамки, филетеадо-росчерк.
 
-   Как поменять палитру: атрибут data-theme на теге <html>.
-       data-theme="mate"     песочно-шалфейная (по умолчанию)
-       data-theme="rosa"     пудрово-винная
-       data-theme="porteno"  лавандово-мятная
-   Живое сравнение: открыть страницу с ?themes=1 в адресе.
+   Все цвета — в CSS-переменных ниже. Чтобы поменять оттенок, достаточно
+   исправить одно значение: оно подхватится по всей странице.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -54,71 +51,31 @@
 }
 
 /* --------------------------------------------------------------------------
-   1. Токены палитр
+   1. Палитра
    -------------------------------------------------------------------------- */
 
-:root,
-[data-theme="mate"] {
-  --bg:          #F5F3EC;  /* костяная бумага */
-  --bg-2:        #EBE8DC;  /* фон чередующихся секций */
+/* Пудрово-винная палитра. Два других варианта — песочно-шалфейный и
+   лавандово-мятный — остались в истории git, в коммите ff6de48. */
+
+:root {
+  --bg:          #FBF4F3;  /* пудровый фон */
+  --bg-2:        #F4E5E3;  /* фон чередующихся секций */
   --surface:     #FFFFFF;
-  --tint:        #E2E8DC;  /* шалфейная заливка */
-  --border:      #DCD7C6;
-  --border-soft: #E8E4D7;
-
-  --ink:         #23281F;  /* оливково-чёрный */
-  --ink-2:       #5C6153;  /* вторичный текст */
-  --ink-on-dark: #F5F3EC;
-
-  --accent:      #8A5323;  /* жжёная амбра, для текста и линий */
-  --accent-soft: #F0E4D2;
-  --deep:        #2E3A28;  /* основная кнопка */
-  --deep-hover:  #3D4C35;
-
-  --shadow: 0 1px 2px rgba(35, 40, 31, .04), 0 12px 32px -12px rgba(35, 40, 31, .12);
-  --shadow-lift: 0 2px 4px rgba(35, 40, 31, .05), 0 22px 48px -16px rgba(35, 40, 31, .20);
-}
-
-[data-theme="rosa"] {
-  --bg:          #FBF4F3;
-  --bg-2:        #F4E5E3;
-  --surface:     #FFFFFF;
-  --tint:        #F7E4E0;
+  --tint:        #F7E4E0;  /* тёплая заливка */
   --border:      #EED9D6;
   --border-soft: #F4E6E4;
 
-  --ink:         #2C2326;
-  --ink-2:       #6B5A5F;
+  --ink:         #2C2326;  /* тёплый почти-чёрный */
+  --ink-2:       #6B5A5F;  /* вторичный текст */
   --ink-on-dark: #FBF4F3;
 
-  --accent:      #9C4257;
+  --accent:      #9C4257;  /* приглушённое вино, для текста и линий */
   --accent-soft: #F7E2E6;
-  --deep:        #6E2B3D;
+  --deep:        #6E2B3D;  /* основная кнопка */
   --deep-hover:  #853548;
 
   --shadow: 0 1px 2px rgba(44, 35, 38, .04), 0 12px 32px -12px rgba(44, 35, 38, .12);
   --shadow-lift: 0 2px 4px rgba(44, 35, 38, .05), 0 22px 48px -16px rgba(44, 35, 38, .20);
-}
-
-[data-theme="porteno"] {
-  --bg:          #F6F6FB;
-  --bg-2:        #E9E9F4;
-  --surface:     #FFFFFF;
-  --tint:        #DDEDE9;  /* мятная заливка */
-  --border:      #DCDBEE;
-  --border-soft: #E9E8F5;
-
-  --ink:         #22243A;
-  --ink-2:       #585B76;
-  --ink-on-dark: #F6F6FB;
-
-  --accent:      #4B5296;
-  --accent-soft: #E3E5F5;
-  --deep:        #313767;
-  --deep-hover:  #3F4680;
-
-  --shadow: 0 1px 2px rgba(34, 36, 58, .04), 0 12px 32px -12px rgba(34, 36, 58, .14);
-  --shadow-lift: 0 2px 4px rgba(34, 36, 58, .05), 0 22px 48px -16px rgba(34, 36, 58, .22);
 }
 
 /* --------------------------------------------------------------------------
@@ -239,6 +196,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .section { padding-block: var(--section-y); }
+
+/* Липкая шапка не должна накрывать заголовок при переходе по якорю. */
+[id] { scroll-margin-top: 92px; }
 .section--tinted { background: var(--bg-2); }
 .section--bordered { border-top: 1px solid var(--border-soft); }
 
@@ -602,6 +562,30 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: var(--ink-2);
 }
 
+.tier__list {
+  display: grid;
+  gap: .5rem;
+  margin-top: 1.1rem;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+.tier__list li {
+  display: grid;
+  grid-template-columns: .85rem 1fr;
+  gap: .5rem;
+  align-items: start;
+}
+.tier__list li::before {
+  content: "";
+  width: 5px; height: 5px;
+  margin-top: .62em;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: .5;
+}
+.tier__list .tier__base { color: var(--ink); font-weight: 500; }
+.tier__list .tier__base::before { opacity: 1; }
+
 .tier--featured { background: var(--tint); border-color: var(--accent); }
 .tier--featured .tier__num { color: color-mix(in srgb, var(--accent) 45%, transparent); }
 
@@ -761,33 +745,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* --------------------------------------------------------------------------
-   17. Временный переключатель палитр (?themes=1)
-   -------------------------------------------------------------------------- */
-
-.theme-switch {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 80;
-  display: flex;
-  gap: .35rem;
-  padding: .4rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  box-shadow: var(--shadow-lift);
-}
-.theme-switch button {
-  width: 30px; height: 30px;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  cursor: pointer;
-}
-.theme-switch button[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-/* --------------------------------------------------------------------------
-   18. Появление секций при скролле
+   17. Появление секций при скролле
    -------------------------------------------------------------------------- */
 
 .reveal {
@@ -798,7 +756,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* --------------------------------------------------------------------------
-   19. Адаптив
+   18. Адаптив
    -------------------------------------------------------------------------- */
 
 @media (max-width: 960px) {
@@ -847,7 +805,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* --------------------------------------------------------------------------
-   20. Уважение к настройкам пользователя и печать
+   19. Уважение к настройкам пользователя и печать
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -861,7 +819,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 @media print {
-  .header, .theme-switch, .btn-row, .footer { display: none; }
+  .header, .btn-row, .footer { display: none; }
   body::before { display: none; }
   .reveal { opacity: 1; transform: none; }
 }

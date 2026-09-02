@@ -61,40 +61,4 @@
   /* --- Год в подвале ------------------------------------------------------ */
   var yearEl = document.querySelector('[data-year]');
   if (yearEl) { yearEl.textContent = String(new Date().getFullYear()); }
-
-  /* --- Временное сравнение палитр: открыть страницу с ?themes=1 -----------
-     Обычные посетители этот переключатель не видят. Когда палитра выбрана,
-     блок можно удалить вместе с лишними темами в styles.css.              */
-  if (new URLSearchParams(window.location.search).has('themes')) {
-    var themes = [
-      { id: 'mate', label: 'Песочно-шалфейная', swatch: '#8A5323' },
-      { id: 'rosa', label: 'Пудрово-винная', swatch: '#9C4257' },
-      { id: 'porteno', label: 'Лавандово-мятная', swatch: '#4B5296' }
-    ];
-
-    var box = document.createElement('div');
-    box.className = 'theme-switch';
-    box.setAttribute('role', 'group');
-    box.setAttribute('aria-label', 'Выбор палитры');
-
-    themes.forEach(function (theme) {
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.style.background = theme.swatch;
-      button.title = theme.label;
-      button.setAttribute('aria-label', theme.label);
-      button.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === theme.id));
-
-      button.addEventListener('click', function () {
-        document.documentElement.dataset.theme = theme.id;
-        box.querySelectorAll('button').forEach(function (other, index) {
-          other.setAttribute('aria-pressed', String(themes[index].id === theme.id));
-        });
-      });
-
-      box.appendChild(button);
-    });
-
-    document.body.appendChild(box);
-  }
 })();

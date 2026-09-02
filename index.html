@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" data-theme="mate">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +7,9 @@
 <meta name="description" content="Подбор поваров, барменов, бариста, официантов и менеджеров зала для баров, кофеен и ресторанов Аргентины. Более 15 лет в HR, гарантия замены 14 дней.">
 
 <!--
-  КОНТАКТЫ — заменить перед публикацией (то же самое в es/index.html):
-    https://wa.me/0000000000   → ваш номер WhatsApp в международном формате без плюса
-    https://t.me/username      → ваш ник в Telegram
-    hola@example.com           → ваша почта
-  Подробности — в файле БРИФ.md.
+  Единственный канал связи на странице — Telegram @oxana_yurch.
+  Если появится WhatsApp или почта, добавлять их нужно в оба файла:
+  index.html и es/index.html.
 -->
 
 <link rel="canonical" href="https://oxana-arg.github.io/sitebar/">
@@ -113,20 +111,14 @@
           рынок изнутри.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="https://wa.me/0000000000">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.44L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/>
-              <path d="M9 9.4c.3 2.6 2.6 4.9 5.2 5.2l.9-1.4 1.9.8v1.6c-3.6.5-7.5-3.4-7-7l1.6-.1.8 1.9-1.4.9Z"/>
-            </svg>
-            Написать в WhatsApp
-          </a>
-          <a class="btn btn--outline" href="https://t.me/username">
+          <a class="btn btn--primary" href="https://t.me/oxana_yurch">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21.5 3.5 2.8 10.9l5.6 1.9 2 6 2.9-3.7 4.6 3.4 3.6-15Z"/>
               <path d="m8.4 12.8 10-7.6-6.6 9.9"/>
             </svg>
-            Telegram
+            Написать в Telegram
           </a>
+          <a class="btn btn--outline" href="#pricing">Посмотреть тарифы</a>
         </div>
         <p class="hero__note">
           <span>Буэнос-Айрес</span>
@@ -306,9 +298,16 @@
           <h3 class="tier__name">Базовый подбор</h3>
           <p class="tier__price">150 USD</p>
           <p class="tier__for">
-            Одна позиция линейного персонала: повар, помощник кухни, официант, бармен
+            Для одной позиции линейного персонала: помощники кухни, официанты, бармены
             с базовым опытом.
           </p>
+          <ul class="tier__list">
+            <li>Анализ профиля позиции</li>
+            <li>Поиск кандидатов на рынке</li>
+            <li>2–3 интервью с отбором</li>
+            <li>Рекомендации финальных кандидатов</li>
+            <li>Гарантия замены — 14 дней</li>
+          </ul>
         </article>
 
         <article class="tier">
@@ -316,9 +315,15 @@
           <h3 class="tier__name">Расширенный подбор</h3>
           <p class="tier__price">350 USD</p>
           <p class="tier__for">
-            Два сотрудника из числа специалистов: бармены, бариста, менеджеры зала —
-            с требованиями к опыту и сервису.
+            Для специалистов: бармены, бариста, менеджеры зала — с требованиями к опыту
+            и сервису.
           </p>
+          <ul class="tier__list">
+            <li class="tier__base">Всё из базового пакета</li>
+            <li>Проверка рекомендаций с прошлых мест</li>
+            <li>Оценка сервисных навыков и уровня испанского</li>
+            <li>Пробная смена перед выходом</li>
+          </ul>
         </article>
 
         <article class="tier tier--featured">
@@ -326,8 +331,14 @@
           <h3 class="tier__name">Пакет «Команда»</h3>
           <p class="tier__price">800–1 200 USD</p>
           <p class="tier__for">
-            Подбор 3–5 позиций сразу, с чек-листами для персонала.
+            Подбор 3–5 позиций с адаптацией и базовыми чек-листами для персонала.
           </p>
+          <ul class="tier__list">
+            <li class="tier__base">Всё из расширенного пакета</li>
+            <li>План закрытия 3–5 позиций по приоритету</li>
+            <li>Базовые чек-листы для каждой роли</li>
+            <li>Сопровождение адаптации в первые недели</li>
+          </ul>
         </article>
 
         <article class="tier">
@@ -338,8 +349,14 @@
             Полное сопровождение: подбор, адаптация, регламенты, инструкции и консультации
             владельца.
           </p>
+          <ul class="tier__list">
+            <li class="tier__base">Всё из пакета «Команда»</li>
+            <li>Регламенты и должностные инструкции</li>
+            <li>Система онбординга новых сотрудников</li>
+            <li>Разбор причин текучки</li>
+            <li>Консультации владельца на всём проекте</li>
+          </ul>
         </article>
-      </div>
 
       <p class="tiers-note">
         Цены указаны в долларах США. Ниже — как устроена работа по любому из пакетов.
@@ -453,8 +470,7 @@
           разумнее начать.
         </p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="https://wa.me/0000000000">Написать в WhatsApp</a>
-          <a class="btn btn--outline" href="https://t.me/username">Написать в Telegram</a>
+          <a class="btn btn--primary" href="https://t.me/oxana_yurch">Написать в Telegram</a>
         </div>
       </div>
     </div>
@@ -473,9 +489,7 @@
       <div>
         <p class="footer__title">Связаться</p>
         <ul>
-          <li><a href="https://wa.me/0000000000">WhatsApp</a></li>
-          <li><a href="https://t.me/username">Telegram</a></li>
-          <li><a href="mailto:hola@example.com">hola@example.com</a></li>
+          <li><a href="https://t.me/oxana_yurch">Telegram — @oxana_yurch</a></li>
         </ul>
       </div>
 
