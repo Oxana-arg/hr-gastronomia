@@ -427,7 +427,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
-.arch img { width: 100%; height: 100%; object-fit: cover; }
+/* Точка кадрирования: 50% — центр, меньше — видно больше верха снимка.
+   Портреты кадрируем ближе к верху, иначе арка срезает голову. */
+.arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--focus, 50%); }
+.hero__figure .arch img { --focus: 8%; }
+.about__figure .arch img { --focus: 22%; }
 .arch--squat { border-radius: 34% 34% var(--radius) var(--radius) / 18% 18% 3% 3%; }
 
 .hero__figure .arch,
