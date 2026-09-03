@@ -591,6 +591,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Цены и списки переиспользуются в карточках доп. услуг. */
 .card .tier__price { margin-top: 0; }
 .card .tier__list { margin-top: .35rem; }
+
+.credentials strong { color: var(--ink); font-weight: 600; }
+
+/* Условия под доп. услугами: та же разметка, но строка не тянется
+   на всю ширину секции — так её легче читать. */
+.terms { max-width: 52rem; }
 .tier__list .tier__base::before { opacity: 1; }
 
 .tier--featured { background: var(--tint); border-color: var(--accent); }
