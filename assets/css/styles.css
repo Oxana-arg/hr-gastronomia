@@ -409,12 +409,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero__note .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
 
 .hero__figure { position: relative; }
+/* Росчерк стоит в потоке под аркой: поверх фотографии он читался
+   как случайная линия. */
 .hero__orn {
-  position: absolute;
-  left: 50%;
-  bottom: -34px;
   width: 168px;
-  transform: translateX(-50%);
+  margin: 1.15rem auto 0;
   opacity: .85;
 }
 
@@ -433,7 +432,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .hero__figure .arch,
 .about__figure .arch { aspect-ratio: 4 / 5; }
-.gallery .arch { aspect-ratio: 4 / 3; }
+.gallery .arch { aspect-ratio: 1 / 1; }
 
 /* --------------------------------------------------------------------------
    9. Полоса фактов
@@ -658,9 +657,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, .7rem + 1vw, 1.75rem);
-  max-width: 860px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.75rem, .5rem + 1vw, 1.5rem);
 }
 .gallery figure { margin: 0; }
 .gallery figcaption {
@@ -775,7 +773,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  .gallery { grid-template-columns: minmax(0, 1fr); max-width: 420px; margin-inline: auto; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 780px) {
@@ -802,6 +800,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 @media (max-width: 480px) {
   .facts { grid-template-columns: minmax(0, 1fr); }
+  .gallery { gap: .6rem; }
   .btn-row .btn { flex: 1 1 100%; justify-content: center; }
 
   /* Подпись под именем уводила шапку на две строки. */

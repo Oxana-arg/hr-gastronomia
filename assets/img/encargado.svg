@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900" role="img">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#EFEDE8"/>
+      <stop offset="1" stop-color="#DFDBD2"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" fill="url(#g)"/>
+  <g fill="none" stroke="#C9C3B7" stroke-width="3.1"
+     stroke-linecap="round" stroke-linejoin="round"><rect x="400.5" y="296.5" width="99.0" height="77.2" rx="9.9"/><circle cx="428.2" cy="322.3" r="7.4"/><path d="M409.4 361.9 L438.1 333.2 L461.9 355.9 L473.8 345.1 L490.6 361.9"/></g>
+  <g fill="#8C857A" font-family="Golos Text, Segoe UI, system-ui, sans-serif" font-weight="500"><text x="450.0" y="450.0" text-anchor="middle" font-size="37.8" opacity="1">Менеджер зала</text><text x="450.0" y="508.6" text-anchor="middle" font-size="37.8" opacity="1">за работой</text><text x="450.0" y="567.2" text-anchor="middle" font-size="31.0" opacity="0.72">1:1</text></g>
+</svg>
