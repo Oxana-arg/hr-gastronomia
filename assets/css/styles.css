@@ -431,6 +431,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .arch img { width: 100%; height: 100%; object-fit: cover; }
 .arch--squat { border-radius: 34% 34% var(--radius) var(--radius) / 18% 18% 3% 3%; }
 
+.hero__figure .arch,
+.about__figure .arch { aspect-ratio: 4 / 5; }
+.gallery .arch { aspect-ratio: 4 / 3; }
+
 /* --------------------------------------------------------------------------
    9. Полоса фактов
    -------------------------------------------------------------------------- */
@@ -654,8 +658,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1rem, .7rem + 1vw, 1.75rem);
+  max-width: 860px;
 }
 .gallery figure { margin: 0; }
 .gallery figcaption {

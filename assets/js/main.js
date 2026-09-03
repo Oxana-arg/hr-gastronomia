@@ -61,4 +61,19 @@
   /* --- Год в подвале ------------------------------------------------------ */
   var yearEl = document.querySelector('[data-year]');
   if (yearEl) { yearEl.textContent = String(new Date().getFullYear()); }
+
+  /* --- Заглушка вместо ещё не загруженной фотографии ----------------------
+     В разметке стоит .jpg, а в data-fallback — пастельная заглушка. Пока
+     фото не залито в assets/img/, показывается заглушка. Как только файл
+     появится, он подхватится сам — править HTML не нужно.               */
+  var useFallback = function (img) {
+    var alt = img.getAttribute('data-fallback');
+    if (alt && img.getAttribute('src') !== alt) { img.setAttribute('src', alt); }
+  };
+
+  document.querySelectorAll('img[data-fallback]').forEach(function (img) {
+    img.addEventListener('error', function () { useFallback(img); });
+    // Изображение могло не загрузиться ещё до запуска скрипта.
+    if (img.complete && img.naturalWidth === 0) { useFallback(img); }
+  });
 })();
