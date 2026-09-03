@@ -587,6 +587,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   opacity: .5;
 }
 .tier__list .tier__base { color: var(--ink); font-weight: 500; }
+
+/* Цены и списки переиспользуются в карточках доп. услуг. */
+.card .tier__price { margin-top: 0; }
+.card .tier__list { margin-top: .35rem; }
 .tier__list .tier__base::before { opacity: 1; }
 
 .tier--featured { background: var(--tint); border-color: var(--accent); }
