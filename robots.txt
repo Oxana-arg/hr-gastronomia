@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://oxana-arg.github.io/sitebar/sitemap.xml
+Sitemap: https://oxana-arg.github.io/hr-gastronomia/sitemap.xml

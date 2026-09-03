@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://oxana-arg.github.io/sitebar/</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://oxana-arg.github.io/sitebar/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://oxana-arg.github.io/sitebar/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://oxana-arg.github.io/sitebar/"/>
+    <loc>https://oxana-arg.github.io/hr-gastronomia/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://oxana-arg.github.io/hr-gastronomia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://oxana-arg.github.io/hr-gastronomia/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oxana-arg.github.io/hr-gastronomia/"/>
   </url>
   <url>
-    <loc>https://oxana-arg.github.io/sitebar/es/</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://oxana-arg.github.io/sitebar/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://oxana-arg.github.io/sitebar/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://oxana-arg.github.io/sitebar/"/>
+    <loc>https://oxana-arg.github.io/hr-gastronomia/es/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://oxana-arg.github.io/hr-gastronomia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://oxana-arg.github.io/hr-gastronomia/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://oxana-arg.github.io/hr-gastronomia/"/>
   </url>
 </urlset>

@@ -813,9 +813,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .gallery { gap: .6rem; }
   .btn-row .btn { flex: 1 1 100%; justify-content: center; }
 
-  /* Подпись под именем уводила шапку на две строки. */
-  .brand__role { display: none; }
-  .brand__name { font-size: 1.05rem; }
+  /* Подпись под брендом несёт фамилию — на телефоне она нужна тоже. */
+  .brand__name { font-size: 1.02rem; }
+  .brand__role { font-size: .58rem; letter-spacing: .07em; }
 }
 
 /* --------------------------------------------------------------------------

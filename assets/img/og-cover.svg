@@ -11,12 +11,10 @@
     <path d="M116 17c0-8-8-12-15-9s-5 13 3 13c5.5 0 8-6 3-8.5"/>
     <path d="M116 17c-4 5-9 7-14 6.5"/>
   </g>
-  <text x="600" y="330" text-anchor="middle" font-family="Prata, Georgia, serif"
-        font-size="72" fill="#2C2326">Оксана Юрченко</text>
-  <text x="600" y="410" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
-        font-size="34" fill="#6B5A5F">HR-консалтинг для ресторанного бизнеса</text>
-  <text x="600" y="462" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
-        font-size="34" fill="#6B5A5F">в Аргентине</text>
-  <text x="600" y="545" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
-        font-size="26" fill="#9C4257" letter-spacing="4">БУЭНОС-АЙРЕС</text>
+  <text x="600" y="345" text-anchor="middle" font-family="Prata, Georgia, serif"
+        font-size="88" fill="#2C2326">HR para Gastronom&#237;a</text>
+  <text x="600" y="425" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
+        font-size="34" fill="#6B5A5F">&#1054;&#1082;&#1089;&#1072;&#1085;&#1072; &#1070;&#1088;&#1095;&#1077;&#1085;&#1082;&#1086; &#183; Oksana Yurchenko</text>
+  <text x="600" y="535" text-anchor="middle" font-family="Golos Text, Segoe UI, system-ui, sans-serif"
+        font-size="26" fill="#9C4257" letter-spacing="4">&#1041;&#1059;&#1069;&#1053;&#1054;&#1057;-&#1040;&#1049;&#1056;&#1045;&#1057; &#183; BUENOS AIRES</text>
 </svg>
