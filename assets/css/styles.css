@@ -431,11 +431,9 @@ ul { margin: 0; padding: 0; list-style: none; }
    Портреты кадрируем ближе к верху, иначе арка срезает голову. */
 .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--focus, 50%); }
 .hero__figure .arch img { --focus: 8%; }
-.about__figure .arch img { --focus: 22%; }
 .arch--squat { border-radius: 34% 34% var(--radius) var(--radius) / 18% 18% 3% 3%; }
 
-.hero__figure .arch,
-.about__figure .arch { aspect-ratio: 4 / 5; }
+.hero__figure .arch { aspect-ratio: 4 / 5; }
 .gallery .arch { aspect-ratio: 1 / 1; }
 
 /* --------------------------------------------------------------------------
@@ -491,12 +489,14 @@ ul { margin: 0; padding: 0; list-style: none; }
    11. Знакомство
    -------------------------------------------------------------------------- */
 
+/* Блок без фотографии: слева заголовок, справа текст. */
 .about__grid {
   display: grid;
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-  gap: clamp(2rem, 1.4rem + 3vw, 4.5rem);
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 1rem + 3vw, 4.5rem);
   align-items: start;
 }
+.about__head .eyebrow { margin-bottom: 1rem; }
 .about__text > * + * { margin-top: 1.1rem; }
 .about__text p { color: var(--ink-2); }
 .about__text strong { color: var(--ink); font-weight: 500; }
@@ -783,7 +783,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   /* На узком экране сначала заголовок и кнопки, фотография — следом. */
   .hero__figure { max-width: 380px; margin-inline: auto; }
-  .about__figure { max-width: 360px; margin-inline: auto; }
 
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
